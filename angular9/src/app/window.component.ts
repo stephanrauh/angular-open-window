@@ -1,21 +1,16 @@
 import {
-  Component,
-  ViewChild,
-  OnInit,
-  ComponentFactoryResolver,
+  AfterViewInit,
   ApplicationRef,
+  Component,
+  ComponentFactoryResolver,
   Injector,
   OnDestroy,
+  OnInit,
   TemplateRef,
-  ViewContainerRef,
-  AfterViewInit
-} from "@angular/core";
-import {
-  CdkPortal,
-  DomPortalHost,
-  DomPortalOutlet,
-  TemplatePortal
-} from "@angular/cdk/portal";
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
+import { CdkPortal, DomPortalOutlet } from '@angular/cdk/portal';
 
 /**
  * This component template wrap the projected content
@@ -23,7 +18,7 @@ import {
  */
 
 @Component({
-  selector: "app-window",
+  selector: 'app-window',
   template: `
     <ng-container *cdkPortal>
       <ng-content></ng-content>
@@ -49,9 +44,9 @@ export class WindowComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // STEP 4: create an external window
     this.externalWindow = window.open(
-      "",
-      "",
-      "width=600,height=400,left=200,top=200"
+      '',
+      '',
+      'width=600,height=400,left=200,top=200'
     );
 
     // STEP 5: create a PortalHost with the body of the new window document
